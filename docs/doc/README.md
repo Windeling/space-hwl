@@ -4,7 +4,7 @@ home: true
 heroImage: https://vuejs.press/images/hero.png
 actions:
   - text: 综合文档
-    link: /docs.html
+    link: /docs/
     type: primary
 
   - text: 详细了解

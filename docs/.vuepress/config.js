@@ -45,9 +45,8 @@ export default defineUserConfig({
         {
           text: '文档汇聚',
           children: [
-            '/get-started/README.md',
-            '/get-started/installation.md',
-            '/get-started/configuration.md'
+            '/docs/README.md',
+            '/docs/SIS.md'
           ]
         }
       ]

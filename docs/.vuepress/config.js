@@ -3,19 +3,15 @@ import { hopeTheme } from "vuepress-theme-hope";
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import { appendDatePlugin } from '@vuepress/plugin-append-date';
-
 export default defineUserConfig({
   lang: "zh-CN",
   title: "Windelingの間 文档",
   description: "属于「黄文林」的知识库、清单和说明书",
-
   bundler: viteBundler(),
-
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
     ["meta", { name: "keywords", content: "文档,知识库,黄文林" }],
   ],
-
   plugins: [
     appendDatePlugin({
       enable: true,
@@ -44,11 +40,9 @@ export default defineUserConfig({
       },
     }),
   ],
-
   theme: hopeTheme({
     author: "黄文林",
     logo: "https://vuejs.press/images/hero.png",
-
     navbar: [
       { text: "首页", link: "/" },
       {
@@ -73,7 +67,6 @@ export default defineUserConfig({
         ],
       },
     ],
-
     sidebar: {
       "/chat/": "structure",
       "/docs/": "structure",
@@ -81,7 +74,6 @@ export default defineUserConfig({
       "/photo/": "structure",
       "/": "structure",
     },
-
     darkmode: "switch",
     lastUpdated: true,
     lastUpdatedText: "最后更新",
@@ -94,63 +86,58 @@ export default defineUserConfig({
     docsBranch: "main",
     contributors: true,
     contributorsText: "贡献者",
-
     // 在这里配置所有 markdown 增强功能
     markdown: {
       // GFM 功能
       gfm: true,
-      
+     
       // 任务列表
       tasklist: {
         disabled: false,
         label: true,
       },
-      
+     
       // 脚注
       footnote: true,
-      
+     
       // 上下标
       sup: true,
       sub: true,
-      
+     
       // 自动链接
       autolink: true,
-      
+     
       // 自定义容器
       container: true,
-      
+     
       // 组件
       component: true,
-      
+     
       // 表格
       table: true,
-      
+     
       // 图片相关
       figure: true,
       imgLazyload: true,
       imgMark: true,
       imgSize: true,
       obsidianImgSize: true,
-
       // 代码块高亮
       code: {
         lineNumbers: 10, // 超过10行显示行号
         highlightLines: true,
       },
-
       // 数学公式
       math: {
         type: "katex",
         delimiters: "dollars",
-        katex: { 
+        katex: {
           strict: false,
           output: 'html',
         }
       },
-
       // 图表
       chart: true,
-
       // 标记增强
       stylize: [
         {
@@ -234,24 +221,15 @@ export default defineUserConfig({
           }),
         },
       ],
+      // 新增：启用 tab 和 spoiler 功能
+      tabs: true,
+      spoiler: true,
     },
-
     plugins: {
       // 搜索
       slimsearch: true,
       copyCode: { showInMobile: true },
       search: false,
-
-      mdEnhance: {
-      tabs: true,
-        // This enables the ::: tab syntax
-        gfm: true,
-  tasklist: true,
-  footnote: true,
-  sup: true,
-  sub: true,
-  container: true,
-    },
       // 评论
       comment: {
         provider: 'Waline',
@@ -261,7 +239,6 @@ export default defineUserConfig({
         comment: true,
         pageview: true,
       },
-
       // 图片预览
       photoSwipe: {
         selector: "[vp-content] :not(a) > img:not([no-view])",
@@ -277,7 +254,6 @@ export default defineUserConfig({
         showCounter: true,
         preload: [2, 2],
       },
-
       // 版权信息
       copyright: {
         global: true,
@@ -286,7 +262,6 @@ export default defineUserConfig({
         license: "CC BY-NC-SA 4.0",
         copyright: `本文作者：黄文林\n原文链接：{{ page.link }}\n转载请保留出处，禁止商用！`,
       },
-
       // 订阅
       feed: {
         rss: true,
@@ -294,7 +269,6 @@ export default defineUserConfig({
         json: true,
         count: 70,
         getter: (page) => page.frontmatter.article !== false,
-
         channel: {
           title: "Windelingの間 · 黄文林的碎碎念",
           description: "摄影风光 + 生活杂谈 + 学习笔记",
@@ -310,13 +284,11 @@ export default defineUserConfig({
           image: "https://blog-ground.oss-cn-guangzhou.aliyuncs.com/avatar.jpg",
         },
       },
-
       // 阅读时间
       readingTime: {
         wordPerMinute: 300,
         pageViews: true,
       },
-
       // 通知
       notice: [
         {

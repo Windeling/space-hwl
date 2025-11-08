@@ -1,5 +1,6 @@
 ---
-title: Home
+title: 各类文档指南
+description: 各类计划与项目使用指南和开发文档
 home: true
 heroImage: https://vuejs.press/images/hero.png
 actions:

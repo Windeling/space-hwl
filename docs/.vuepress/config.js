@@ -45,7 +45,7 @@ export default defineUserConfig({
       },
     ],
 
-    // ==================== 侧边栏：正确格式 ====================
+    // 关键：sidebar 是数组！
     sidebar: [
       {
         link: "/",

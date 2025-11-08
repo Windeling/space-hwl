@@ -89,9 +89,8 @@ export default defineUserConfig({
           {
             text: "风光摄影",
             children: [
-              { text: "山水风光", link: "/photo/landscape/mountain-water/" },
-              { text: "海滨风光", link: "/photo/landscape/beach/" },
-              { text: "星空摄影", link: "/photo/landscape/star/" },
+              { text: "自然", link: "/photo/nature/" },
+              { text: "建筑", link: "/photo/building/" },
             ],
           },
         ],

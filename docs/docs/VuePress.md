@@ -1,3 +1,4 @@
+---
 title: Markdown 全能语法备忘录
 date: 2025-11-08
 updated: 2025-11-09
@@ -5,6 +6,7 @@ tabs: true
 math: true
 shiki: true
 chart: true
+---
 # Markdown 语法 & 扩展展示备忘录
 
 ## 1. 标准 Markdown 基础（VuePress 原生支持）

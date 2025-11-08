@@ -2,6 +2,7 @@
 title: 各类文档指南
 description: 各类研究与计划的使用指南和开发文档
 heroImage: https://vuejs.press/images/hero.png
+home: true
 actions:
   - text: 综合文档
     link: /docs/

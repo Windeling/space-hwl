@@ -19,9 +19,26 @@ export default defineUserConfig({
         text: '首页',
         link: '/'
       },
+       {
+        text: '拾枝杂谈',
+        children: [
+          {
+            text: '奇思妙想',
+            link: '/chat/thought/'
+          },
+          {
+            text: '朴实生活',
+            link: '/chat/life/'
+          }
+        ]
+      },
       {
         text: '文档说明',
         link: '/doc/'
+      },
+      {
+        text: '学习笔记',
+        link: '/study/'
       },
       {
         text: '摄影风光',

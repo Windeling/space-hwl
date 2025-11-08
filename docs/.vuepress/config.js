@@ -109,6 +109,15 @@ export default defineUserConfig({
     // 代码复制
     plugins: {
       copyCode: { showInMobile: true },
+
+      
+    searchPro: {
+      // 可选配置
+      indexContent: true,     // 索引正文内容
+      autoSuggestions: true,  // 自动建议
+      hotKeys: ["s", "/"],    // 快捷键
+    }
+    
     },
   }),
 });

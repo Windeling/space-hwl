@@ -1,6 +1,6 @@
 ---
 home: true
-title: Home
+title: 主页
 heroImage: https://vuejs.press/images/hero.png
 actions:
   - text: 快速开始

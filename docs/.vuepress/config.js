@@ -10,6 +10,9 @@ import { markdownMathPlugin } from '@vuepress/plugin-markdown-math';
 import { markdownImagePlugin } from '@vuepress/plugin-markdown-image';
 import { feedPlugin } from '@vuepress/plugin-feed';
 import { photoSwipePlugin } from '@vuepress/plugin-photo-swipe';
+import { markdownExtPlugin } from '@vuepress/plugin-markdown-ext';
+import { markdownStylizePlugin } from '@vuepress/plugin-markdown-stylize';
+import { shikiPlugin } from '@vuepress/plugin-shiki';
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -25,6 +28,150 @@ export default defineUserConfig({
 
   // —— 根 plugins 只留 appendDate —— //
   plugins: [
+    shikiPlugin({
+      // 光暗双主题（Hope 自动切）
+      themes: {
+        light: "github-light",   // 白天清爽
+        dark: "github-dark",     // 夜间护眼
+      },
+
+      // 行号 + 高亮
+      lineNumbers: true,
+      notationDiff: true,
+      notationFocus: true,
+      notationHighlight: true,
+      notationWordHighlight: true,
+
+      // TS 神器：悬浮看类型
+      twoslash: true,
+
+      // 预加载常用语言（加速）
+      preload: ["js", "ts", "vue", "bash", "json", "md", "yaml"],
+    }),
+    
+    markdownStylizePlugin({
+      // 自定义规则数组
+      custom: [
+        // 1. *推荐* → 绿底徽章
+        {
+          matcher: '推荐',
+          replacer: ({ tag }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'Badge',
+                attrs: { type: 'tip' },
+                content: '推荐',
+              };
+            }
+          },
+        },
+
+        {
+          matcher: '应当',
+          replacer: ({ tag }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'Badge',
+                attrs: { type: 'tip' },
+                content: '推荐',
+              };
+            }
+          },
+        },
+
+        // 2. *必须* → 红底徽章
+        {
+          matcher: '必须',
+          replacer: ({ tag }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'Badge',
+                attrs: { type: 'danger' },
+                content: '必须',
+              };
+            }
+          },
+        },
+
+        {
+          matcher: '警告',
+          replacer: ({ tag }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'Badge',
+                attrs: { type: 'danger' },
+                content: '必须',
+              };
+            }
+          },
+        },
+
+        {
+          matcher: '注意',
+          replacer: ({ tag }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'Badge',
+                attrs: { type: 'danger' },
+                content: '必须',
+              };
+            }
+          },
+        },
+
+        // 3. n't 结尾的单词 → 红字（比如 *doesn't*）
+        {
+          matcher: /n't$/,
+          replacer: ({ tag, attrs, content }) => {
+            if (tag === 'em') {
+              return {
+                tag: 'span',
+                attrs: { ...attrs, style: 'color: red;' },
+                content,
+              };
+            }
+          },
+        },
+
+        // 4. ==高亮== → 荧光黄
+        {
+          matcher: /==(.+?)==/,
+          replacer: ({ content }) => ({
+            tag: 'mark',
+            attrs: { style: 'background: rgba(255, 211, 17, 1);' },
+            content: content.slice(2, -2), // 去掉 ==
+          }),
+        },
+      ],
+    }),
+    
+    markdownExtPlugin({
+      // GFM 全家桶（自动链接、删节线、任务列表、表格对齐）
+      gfm: true,
+
+      // 脚注：[^1]: 描述
+      footnote: true,
+
+      // 上标 ^text^ 和下标 ~text~
+      sup: true,
+      sub: true,
+
+      // 自动转链接：www.baidu.com → 可点
+      autolink: true,
+
+      // 自定义容器：::: tip ::::
+      container: true,
+
+      // 组件 fence：::: my-comp ::::
+      component: true,
+
+      // 任务列表：[x] 已完成
+      tasklist: true,
+
+      // 表格对齐：:--: 居中
+      table: true,
+    }),
+
     appendDatePlugin({
       enable: true,
       format: "YYYY-MM-DD HH:mm",
@@ -108,6 +255,7 @@ export default defineUserConfig({
       tasklist: true,
       footnote: true,
       imageLazyload: true,
+      tabs: true,
 
       // markdown-image 功能全开
       figure: true,
@@ -161,6 +309,7 @@ export default defineUserConfig({
         license: "CC BY-NC-SA 4.0",
         copyright: `本文作者：黄文林\n原文链接：{{ page.link }}\n转载请保留出处，禁止商用！`,
       },
+
 
       feed: {
         rss: true,

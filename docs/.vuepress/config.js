@@ -6,7 +6,7 @@ import { viteBundler } from "@vuepress/bundler-vite";
 export default defineUserConfig({
   // ---------- 基础配置 ----------
   lang: "zh-CN",
-  title: "Windeling 文档",
+  title: "Windelingの間 文档",
   description: "属于「黄文林」的知识库、清单和说明书",
 
   // ---------- 打包器 ----------

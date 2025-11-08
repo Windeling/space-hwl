@@ -20,8 +20,8 @@ export default defineUserConfig({
         link: '/'
       },
       {
-        text: '快速开始',
-        link: '/get-started/'
+        text: '摄影风光',
+        link: '/photo/'
       },
       {
         text: '文档说明',

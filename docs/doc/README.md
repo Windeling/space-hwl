@@ -1,12 +1,12 @@
 ---
 home: true
-title: "你的标题"
-description: "你的描述"
-heroText: "主标题文字"
-tagline: "副标题文字"
+title: "Windeling文档"
+description: "总览"
+heroText: "文档聚合"
+tagline: "各计划研究的使用指南和开发文档"
 actions:
   - text: 快速开始
-    link: /guide/
+    link: /docs/
     type: primary
 features:
   - title: 功能一

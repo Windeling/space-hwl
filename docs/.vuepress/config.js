@@ -13,6 +13,7 @@ import { photoSwipePlugin } from '@vuepress/plugin-photo-swipe';
 import { markdownExtPlugin } from '@vuepress/plugin-markdown-ext';
 import { markdownStylizePlugin } from '@vuepress/plugin-markdown-stylize';
 import { shikiPlugin } from '@vuepress/plugin-shiki';
+import { markdownChartPlugin } from '@vuepress/plugin-markdown-chart'
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -28,6 +29,10 @@ export default defineUserConfig({
 
   // —— 根 plugins 只留 appendDate —— //
   plugins: [
+    markdownChartPlugin({
+      echarts: true   // 就这一行，ECharts 就活了！
+    }),
+
     shikiPlugin({
       // 光暗双主题（Hope 自动切）
       themes: {
@@ -48,7 +53,7 @@ export default defineUserConfig({
       // 预加载常用语言（加速）
       preload: ["js", "ts", "vue", "bash", "json", "md", "yaml"],
     }),
-    
+
     markdownStylizePlugin({
       // 自定义规则数组
       custom: [

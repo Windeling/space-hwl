@@ -1,24 +1,16 @@
 ---
-title: 各类文档指南
-description: 各类研究与计划的使用指南和开发文档
-heroImage: https://vuejs.press/images/hero.png
 home: true
+title: "你的标题"
+description: "你的描述"
+heroText: "主标题文字"
+tagline: "副标题文字"
 actions:
-  - text: 综合文档
-    link: /docs/
+  - text: 快速开始
+    link: /guide/
     type: primary
-
-  - text: 详细了解
-    link: https://vuejs.press/guide/introduction.html
-    type: secondary
-
 features:
-  - title: 简约
-    details: 知识库应当简约，快速查询
-  - title: 快速
-
-
-footer: MIT Licensed | Copyright © 2025 Windeling
+  - title: 功能一
+    details: 功能一描述
 ---
 
 This is the content of home page. Check [Home Page Docs][default-theme-home] for more details.

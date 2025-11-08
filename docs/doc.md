@@ -6,11 +6,11 @@ heroText: "文档聚合"
 heroImage: https://vuejs.press/images/hero.png
 tagline: "各计划研究的使用指南和开发文档"
 actions:
-  - text: 快速开始
+  - text: 查阅文档
     link: /docs/
     type: primary
 features:
-  - title: 功能一
+  - title: 学生信息查询系统
     details: 功能一描述
 ---
 

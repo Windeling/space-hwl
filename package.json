@@ -1,4 +1,3 @@
-// .vuepress/config.js
 import { hopeTheme } from "vuepress-theme-hope";
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";

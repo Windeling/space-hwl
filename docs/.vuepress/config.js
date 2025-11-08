@@ -20,12 +20,30 @@ export default defineUserConfig({
         link: '/'
       },
       {
-        text: '摄影风光',
-        link: '/photo/'
-      },
-      {
         text: '文档说明',
         link: '/doc/'
+      },
+      {
+        text: '摄影风光',
+        items: [
+          {
+            text: '风光摄影',
+            items: [
+              {
+                text: '山水风光',
+                link: '/photo/landscape/mountain-water/'
+              },
+              {
+                text: '海滨风光', 
+                link: '/photo/landscape/beach/'
+              },
+              {
+                text: '星空摄影',
+                link: '/photo/landscape/star/'
+              }
+            ]
+          }
+        ]
       }
     ],
     

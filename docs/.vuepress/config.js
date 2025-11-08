@@ -45,40 +45,34 @@ export default defineUserConfig({
       },
     ],
 
-    // ==================== 侧边栏：对象格式 ====================
+    // ==================== 侧边栏：最终修正 ====================
     sidebar: [
       {
-        link: "/",
+        prefix: "/",  // 首页路径
         text: "Windeling 文档",
         collapsible: true,
         collapsed: true,
-        children: "structure",
+        children: "structure",  // 自动文件结构
       },
       {
-        link: "/chat/",
-        headerDepth: 3,
-        children: "header",
+        prefix: "/chat/",
+        children: "heading",  // 自动文章标题 (H2/H3)
       },
       {
-        link: "/doc/",
-        headerDepth: 3,
-        children: "header",
+        prefix: "/doc/",
+        children: "heading",
       },
       {
-        link: "/study/",
-        headerDepth: 3,
-        children: "header",
+        prefix: "/study/",
+        children: "heading",
       },
       {
-        link: "/photo/",
-        headerDepth: 3,
-        children: "header",
+        prefix: "/photo/",
+        children: "heading",
       },
     ],
 
-    // 全局 headerDepth（可选，覆盖局部）
-    // headerDepth: 3,
-
+    headerDepth: 3,
     sidebarIcon: true,
 
     markdown: {

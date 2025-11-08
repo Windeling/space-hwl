@@ -8,6 +8,7 @@ export default defineUserConfig({
   title: "Windeling 文档（beta）",
   description: "属于「黄文林」的知识库、清单和说明书",
 
+  // 必须显式指定 bundler
   bundler: viteBundler(),
 
   head: [
@@ -16,9 +17,11 @@ export default defineUserConfig({
   ],
 
   theme: hopeTheme({
+    // 作者、logo
     author: "黄文林",
     logo: "https://vuejs.press/images/hero.png",
 
+    // 导航栏（保持你原来的）
     navbar: [
       { text: "首页", link: "/" },
       {
@@ -45,51 +48,41 @@ export default defineUserConfig({
       },
     ],
 
-    // ==================== 侧边栏：最终修正 ====================
-    sidebar: [
-      {
-        prefix: "/",  // 首页路径
-        text: "Windeling 文档",
-        collapsible: true,
-        collapsed: true,
-        children: "structure",  // 自动文件结构
-      },
-      {
-        prefix: "/chat/",
-        children: "heading",  // 自动文章标题 (H2/H3)
-      },
-      {
-        prefix: "/doc/",
-        children: "heading",
-      },
-      {
-        prefix: "/study/",
-        children: "heading",
-      },
-      {
-        prefix: "/photo/",
-        children: "heading",
-      },
-    ],
+    // ========= 侧边栏：关键修复 =========
+    sidebar: {
+      // 首页：显示文件结构（可折叠）
+      "/": [
+        {
+          text: "Windeling 文档",
+          collapsible: true,
+          collapsed: true,
+          children: "structure",
+        },
+      ],
 
+      // 所有子目录：显示当前页面的标题目录（H2/H3）
+      "/chat/": "heading",
+      "/doc/": "heading",
+      "/study/": "heading",
+      "/photo/": "heading",
+    },
+
+    // 标题层级
     headerDepth: 3,
+
+    // 图标
     sidebarIcon: true,
 
+    // ========= Markdown 增强（新写法）=========
     markdown: {
-      footnote: true,
-      tasklist: true,
-      sup: true,
-      sub: true,
+      footnote: true,     // 脚注
+      tasklist: true,     // 任务列表
+      sup: true,          // 上标
+      sub: true,          // 下标
+      // imageLazyload: true,  // 删除这个，避免警告
     },
 
-    plugins: {
-      copyCode: { showInMobile: true },
-      slimsearch: {
-        indexContent: true,
-        hotKeys: ["s", "/"],
-      },
-    },
-
+    // ========= 其它功能 =========
     darkmode: "switch",
     lastUpdated: true,
     lastUpdatedText: "最后更新",
@@ -102,5 +95,17 @@ export default defineUserConfig({
     docsBranch: "main",
     contributors: true,
     contributorsText: "贡献者",
+
+    // 代码复制
+    plugins: {
+      copyCode: { showInMobile: true },
+
+      // 更强大的全文搜索（searchPro）
+      searchPro: {
+        indexContent: true,     // 索引正文内容
+        autoSuggestions: true,  // 自动建议
+        hotKeys: ["s", "/"],    // 快捷键
+      },
+    },
   }),
 });

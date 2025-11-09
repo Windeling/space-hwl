@@ -231,6 +231,10 @@ export default defineUserConfig({
       spoiler: true,
     },
     plugins: {
+      icon: {
+      // 关键词: "iconify", "fontawesome", "fontawesome-with-brands"
+      assets: "fontawesome",
+     },
       git: true,
       // 搜索
       slimsearch: true,

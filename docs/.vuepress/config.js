@@ -89,7 +89,6 @@ export default defineUserConfig({
     docsBranch: "main",
     contributors: true,
     contributorsText: "贡献者",
-    lastUpdated: true,
     changelog: true,
 
     // 在这里配置所有 markdown 增强功能
@@ -180,7 +179,6 @@ export default defineUserConfig({
   linkCheck: true,
   
   // 数学公式
-  math: true,
   
   // 图表支持
   chart: true,

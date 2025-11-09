@@ -88,46 +88,158 @@ export default defineUserConfig({
     contributors: true,
     contributorsText: "贡献者",
     changelog: true,
-    // 页面信息配置（从 markdown 中移动到这里）
-    pageInfo: [
-      'Author',
-      'PageView',
-      'Original',
-      'Date',
-      'Category',
-      'Tag',
-      'ReadingTime',
-      'Word',
-    ],
-    // 文章加密配置（从 markdown 中移动到这里）
-    encrypt: {
-      config: {
-        // 可以在这里配置具体的加密规则
-        // 例如："/guide/encrypt.html": ["1234"],
-      },
-    },
+
+    // 在这里配置所有 markdown 增强功能
     markdown: {
+      // GFM 功能
+  gfm: true,
+  
+  // 任务列表
+  tasklist: {
+    disabled: false,
+    label: true,
+    // 更多任务列表选项
+  },
+  
+  // 脚注
+  footnote: true,
+  
+  // 上下标
+  sup: true,
+  sub: true,
+  
+  // 自动链接
+  autolink: true,
+  
+  // 自定义容器
+  container: true,
+  
+  // 组件
+  component: true,
+  
+  // 表格
+  table: true,
+  
+  // 隐藏内容
+  spoiler: true,
+  
+  // 代码标签页
+  codeTabs: true,
+  
+  // 代码演示
+  demo: true,
+  
+  // 图片增强
+  image: {
+    lazy: true,
+    size: true,
+    mark: true,
+    title: true,
+  },
+  
+  // 图片标记
+  imageMark: true,
+  
+  // 图片大小
+  imageSize: true,
+  
+  // 提示框
+  hint: true,
+  
+  // 对齐支持
+  align: true,
+  
+  // 标记支持
+  mark: true,
+  
+  // 导入支持
+  include: true,
+  
+  // 属性支持
+  attrs: true,
+  
+  // 选项卡
+  tabs: true,
+  
+  // 代码组
+  codeGroup: true,
+  
+  // 代码块行号
+  lineNumbers: true,
+  
+  // 代码块高亮行
+  highlightLines: true,
+  
+  // VPre 容器
+  vPre: true,
+  
+  // 链接检查
+  linkCheck: true,
+  
+  // 数学公式
+  
+  // 图表支持
+  chart: true,
+  
+  // 流程图
+  flowchart: true,
+  
+  // Mermaid 图表
+  mermaid: true,
+  
+  // 阅读时间
+  readingTime: true,
+  
+  // 页面信息
+  pageInfo: [
+    'Author',
+    'PageView',
+    'Original',
+    'Date',
+    'Category',
+    'Tag',
+    'ReadingTime',
+    'Word',
+  ],
+  
+  // 版权信息
+  copyright: true,
+  
+  // 文章加密
+  encrypt: true,
+  
+  // 幻灯片
+  presentation: {
+    plugins: [
+      'highlight',
+      'math',
+      'search',
+      'notes',
+      'zoom',
+    ],
+  },
+      // 图片相关
+      figure: true,
+      imgLazyload: true,
       imgMark: true,
+      imgSize: true,
+      obsidianImgSize: true,
+      // 代码块高亮
+      code: {
+        lineNumbers: 10, // 超过10行显示行号
+        highlightLines: true,
+      },
+      // 数学公式
       math: {
-        engine: "katex",
+        type: "katex",
         delimiters: "dollars",
         katex: {
           strict: false,
           output: 'html',
         }
       },
-      codeTabs: true,
-      tabs: true,
-      tasklist: {
-        label: true,
-      },
-      linkify: true,
-      include: true,
-      align: true,
-      attrs: true,
-      mark: true,
-      sup: true,
-      sub: true,
+      // 图表
+      // 标记增强
       stylize: [
         {
           matcher: '推荐',
@@ -210,49 +322,19 @@ export default defineUserConfig({
           }),
         },
       ],
-      chartjs: true,
-      mermaid: true,
-      demo: true,
-      footnotes: true,
-      containers: true,
-      lazyload: true,
-      imgSize: true,
-      figure: true,
-      alert: true,
-      code: {
-        lineNumbers: 10,
-        highlightLines: true,
-      },
-      vpre: true,
-      checkLinks: true,
-      obsidianImgSize: true,
+      // 新增：启用 tab 和 spoiler 功能
     },
     plugins: {
+      
       icon: {
-        assets: "fontawesome",
-      },
+      // 关键词: "iconify", "fontawesome", "fontawesome-with-brands"
+      assets: "fontawesome",
+     },
       git: true,
       // 搜索
       slimsearch: true,
       copyCode: { showInMobile: true },
       search: false,
-     
-      // 阅读时间（从 markdown 中移动到这里）
-      readingTime: {
-        wordPerMinute: 300,
-      },
-     
-      // 幻灯片（从 markdown 中移动到这里）
-      presentation: {
-        plugins: [
-          'highlight',
-          'math',
-          'search',
-          'notes',
-          'zoom',
-        ],
-      },
-     
       // 评论
       comment: {
         provider: 'Waline',
@@ -277,7 +359,7 @@ export default defineUserConfig({
         showCounter: true,
         preload: [2, 2],
       },
-      // 版权信息（保留这个，删除了 markdown 中的重复配置）
+      // 版权信息
       copyright: {
         global: true,
         triggerLength: 80,
@@ -307,12 +389,16 @@ export default defineUserConfig({
           image: "https://blog-ground.oss-cn-guangzhou.aliyuncs.com/avatar.jpg",
         },
       },
+      // 阅读时间
+      readingTime: {
+        wordPerMinute: 300,
+      },
       // 通知
       notice: [
         {
           path: "/",
           title: "更新啦！",
-          content: "所有数据库汇总更新",
+          content: "汇总更新",
           actions: [
             { text: "立刻看新文", link: "/chat/life/" },
             { text: "懒得鸟我", type: "default" }
@@ -324,7 +410,7 @@ export default defineUserConfig({
         {
           match: /^\/photo\//,
           title: "摄影专区提醒",
-          content: "复制走请保留水印，不然天打雷劈！",
+          content: "复制走请保留注明来源。",
           actions: [{ text: "我知道啦", type: "primary" }],
           fullscreen: true,
           confirm: true,

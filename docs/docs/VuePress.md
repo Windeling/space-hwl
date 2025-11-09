@@ -163,21 +163,50 @@ function App() {
 
 
 ## 8. 代码选项卡（Hope 自带 code-tabs）
-::: tabs
+安装 VuePress:
+
+::: code-tabs#shell
 
 @tab pnpm
-```bash
-pnpm add vue
-```
 
-@tab npm
 ```bash
-npm i vue
+pnpm add -D vuepress
 ```
 
 @tab yarn
+
 ```bash
-yarn add vue
+yarn add -D vuepress
+```
+
+@tab:active npm
+
+```bash
+npm i -D vuepress
+```
+
+:::
+
+安装 VuePress Theme Hope:
+
+::: code-tabs#shell
+
+@tab pnpm
+
+```bash
+pnpm add -D vuepress-theme-hope
+```
+
+@tab yarn
+
+```bash
+yarn add -D vuepress-theme-hope
+```
+
+@tab:active npm
+
+```bash
+npm i -D vuepress-theme-hope
 ```
 
 :::

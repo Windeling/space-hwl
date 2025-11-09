@@ -297,7 +297,6 @@ export default defineUserConfig({
       // 阅读时间
       readingTime: {
         wordPerMinute: 300,
-        pageViews: true,
       },
       // 通知
       notice: [
